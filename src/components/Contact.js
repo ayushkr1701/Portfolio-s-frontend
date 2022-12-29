@@ -19,19 +19,26 @@ const Contact = () => {
   
   const [contact, setContact] = useState([]);
   
-  const fetchContact = () => {
-    axios.get("https://ayush-portfolio-backend.onrender.com/contact", {
-      headers: {
-        "Accept": "application/json",
-      }
-    })
-    .then(response => {
-      setContact(response.data);
-    })
-    .catch(error => console.log(error));
-  };
+  // const fetchContact = () => {
+  //   axios.get("https://ayush-portfolio-backend.onrender.com/contact", {
+  //     headers: {
+  //       "Accept": "application/json",
+  //     }
+  //   })
+  //   .then(response => {
+  //     setContact(response.data);
+  //   })
+  //   .catch(error => console.log(error));
+  // };
   
   useEffect(() => {
+    async function fetchContact(){
+      const response= await fetch('https://ayush-portfolio-backend.onrender.com/contact');
+      const data= await response.json();
+      setContact(data);
+      console.log(data);
+
+    }
     fetchContact();
   }, []);
     
@@ -73,7 +80,7 @@ const Contact = () => {
               Do you need a full-stack web developer? I would love to hear from you.
             </Typography>
           </Box>
-          {contact.slice(0, 1).map((item, i) => (
+          {contact.map((item,i) => (
             <Grid container spacing={3} key={i}>
               <Grid item md={3} xs={12}>
                 <Box marginTop={3} marginBottom={2} justifyContent="center">
