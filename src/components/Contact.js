@@ -23,7 +23,6 @@ const Contact = () => {
     axios.get("https://ayush-portfolio-backend.onrender.com/contact", {
       headers: {
         "Accept": "application/json",
-        "Access-Control-Allow-Origin": "*"
       }
     })
     .then(response => {
