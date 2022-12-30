@@ -89,7 +89,7 @@ const Technologies = () => {
                 padding: '2rem 1rem',
                 transition: '300ms ease-in-out',
                 color: "#fff"
-              }}>
+              }} key={item.id}>
                 <img src={item.icon} style={{height: "50px", margin: "15px"}}/>
                 
                 {item.name}

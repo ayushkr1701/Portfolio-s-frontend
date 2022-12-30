@@ -53,7 +53,8 @@ const Sidebar = ({ open, onClose }) => {
                  
                 style={{ 
                   height: 55, 
-                  width: "100%"
+                  width: "100%",
+                  filter: "brightness(0) invert(1)",
                 }} 
               />
                 {/* <Typography 
