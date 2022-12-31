@@ -36,7 +36,6 @@ const Contact = () => {
       const response= await fetch('https://ayush-portfolio-backend.onrender.com/contact');
       const data= await response.json();
       setContact(data);
-      console.log(data);
 
     }
     fetchContact();
@@ -183,12 +182,12 @@ const Contact = () => {
                   </Box>
                 </Box>
               </Grid>
-              {/* <Grid item md={8} xs={12}>
+              <Grid item md={8} xs={12}>
                 <Map 
                   coordinates={[item.latitude, item.longitude]} 
                   zoom={13} 
                 />
-              </Grid> */}
+              </Grid>
             </Grid>
           ))}
         </Box>
