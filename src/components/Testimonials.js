@@ -13,13 +13,13 @@ import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
 
 // Font Awesome Icons
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faCommentDots } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-library.add(faCommentDots);
+// import { library } from "@fortawesome/fontawesome-svg-core";
+// import { faCommentDots } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// library.add(faCommentDots);
 
 const Testimonials = () => {
-  const theme = useTheme();
+  // const theme = useTheme();
   const [testimonials, setTestimonials] = useState([]);
   
   const fetchTestimonials = () => {

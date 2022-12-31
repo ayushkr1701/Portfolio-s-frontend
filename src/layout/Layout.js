@@ -72,7 +72,7 @@ const Layout = ({ children }) => {
         {children}
         <Divider />
       </Box>
-      <Footer />
+      {/* <Footer /> */}
       <NoSsr>
         <Zoom in={trigger}>
           <Box
