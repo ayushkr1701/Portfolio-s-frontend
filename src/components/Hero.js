@@ -79,7 +79,6 @@ const Hero = () => {
                     align="left"
                   >
                     {item.title}
-                    {" "}
                   </Typography>
                   <Typography
                     color={"#fff"}

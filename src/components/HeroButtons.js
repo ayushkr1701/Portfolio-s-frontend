@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import HelpIcon from "@mui/icons-material/HelpOutlineOutlined";
 import ManageSearchIcon from "@mui/icons-material/ManageSearchOutlined";
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 

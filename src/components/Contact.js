@@ -183,12 +183,12 @@ const Contact = () => {
                   </Box>
                 </Box>
               </Grid>
-              <Grid item md={8} xs={12}>
+              {/* <Grid item md={8} xs={12}>
                 <Map 
                   coordinates={[item.latitude, item.longitude]} 
                   zoom={13} 
                 />
-              </Grid>
+              </Grid> */}
             </Grid>
           ))}
         </Box>
