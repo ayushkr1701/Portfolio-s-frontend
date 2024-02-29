@@ -9,33 +9,22 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
+import image1 from "../assets/images/PFP50x70.jpg";
 
 import HeroButtons from "./HeroButtons";
 
 const Hero = () => {
   const theme = useTheme();
-  const isMd = useMediaQuery(
-    theme.breakpoints.up("md"),
-    { defaultMatches: true }
-  );
-  
-  const [hero, setHero] = useState([]);
-  
-  const fetchHero = () => {
-    axios.get("https://ayush-portfolio-backend.onrender.com/hero", {
-      headers: {
-        "Accept": "application/json",
-      }
-    })
-    .then(response => {
-      setHero(response.data);
-    })
-    .catch(error => console.log(error));
-  };
-  
-  useEffect(() => {
-    fetchHero();
-  }, []);
+  const isMd = useMediaQuery(theme.breakpoints.up("md"), { defaultMatches: true });
+
+  const heroData = [
+    {
+      title: "Ayush Kumar",
+      subtitle: "Full-Stack Developer",
+      description: "I am a final-year B.Tech student at Indian Institute of Technology, Jodhpur and my passion lies in the world of app and website development. Crafting digital experiences through coding is my true love. ",
+      image: image1,
+    },
+  ];
 
   useEffect(() => {
     AOS.init({
@@ -45,28 +34,29 @@ const Hero = () => {
       easing: 'ease-in-out',
     });
   }, []);
-  
+
   return (
     <div id="home">
-      <Box 
+      <Box
         maxWidth={{ sm: 720, md: 1236 }}
         width={1}
         margin="0 auto"
         paddingX={2}
         paddingY={4}
         sx={{
-          backgroundImage: `url(${hero.image})`,
-          backgroundColor: "#212121"
+          backgroundImage: `url()`,
+          backgroundColor: "#212121",
         }}
       >
-        {hero.slice(0, 1).map((item, i) => (
+        {heroData.map((item, i) => (
           <Grid container key={i} spacing={4}>
-            <Grid 
-              item 
-              xs={12} 
+            <Grid
+              item
+              xs={12}
               md={6}
-              sx={{ order: { xs: 2, md: 1 },
-            }}
+              sx={{
+                order: { xs: 2, md: 1 },
+              }}
             >
               <Box data-aos={isMd ? "fade-right" : "fade-up"}>
                 <Box marginBottom={2}>
@@ -74,7 +64,7 @@ const Hero = () => {
                     color={"#f56539"}
                     variant="h1"
                     fontWeight={700}
-                    fontSize={'3.2rem'}
+                    fontSize={"3.2rem"}
                     marginTop={3}
                     align="left"
                   >
@@ -94,7 +84,7 @@ const Hero = () => {
                   <Typography
                     variant="h4"
                     component="p"
-                    color={'#fff'}
+                    color={"#fff"}
                     align="justify"
                   >
                     {item.description}
@@ -103,12 +93,12 @@ const Hero = () => {
                 <HeroButtons />
               </Box>
             </Grid>
-            <Grid 
-              item 
-              container 
-              alignItems="center" 
-              justifyContent="center" 
-              xs={12} 
+            <Grid
+              item
+              container
+              alignItems="center"
+              justifyContent="center"
+              xs={12}
               md={6}
               sx={{ order: { xs: 1, md: 2 } }}
             >
@@ -116,33 +106,31 @@ const Hero = () => {
                 sx={{
                   height: { xs: "auto", md: 1 },
                   "& img": {
-                    objectFit: "cover"
+                    objectFit: "cover",
                   },
                   "& .lazy-load-image-loaded": {
                     height: 1,
                     width: 1,
-                  }
+                  },
                 }}
               >
-                <Box 
-                  component={LazyLoadImage}
+                <img
                   src={item.image}
                   alt="Background Image"
-                  effect="blur"
-                  height={{ xs: "auto", md: 1 }}
-                  maxHeight={{ xs: 300, md: 1 }}
-                  width={1}
-                  maxWidth={1}
-                  borderRadius={2}
+                  height={"80%"} // Adjust the height as needed
+                  width={"80%"} // Adjust the width as needed
+                  style={{ borderRadius: "8px" }} // Add styling if needed
                 />
               </Box>
             </Grid>
           </Grid>
-          ))}
-        <Divider sx={{ mt:6, color: "#f56539"}} />
+        ))}
+        <Divider sx={{ mt: 6, color: "#f56539" }} />
       </Box>
-    </div>     
+    </div>
   );
 };
 
 export default Hero;
+
+

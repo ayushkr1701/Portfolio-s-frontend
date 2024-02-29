@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import Avatar from "@mui/material/Avatar";
+import React from "react";
+import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
+import 'react-vertical-timeline-component/style.min.css';
 import Box from "@mui/material/Box";
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import Card from "@mui/material/Card";
@@ -10,44 +10,36 @@ import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
-import { useTheme } from "@mui/material/styles";
-
-// Font Awesome Icons
-// import { library } from "@fortawesome/fontawesome-svg-core";
-// import { faCommentDots } from "@fortawesome/free-solid-svg-icons";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// library.add(faCommentDots);
 
 const Testimonials = () => {
-  // const theme = useTheme();
-  const [testimonials, setTestimonials] = useState([]);
+  // Replace this with your static data
+    const testimonialsData = [
+      {
+        Tenure: "Apr 2023 - July 2023",
+        Company: "WILLINGS, INC",
+        Designation: "Web/App Developer",
+        Description:
+          "Developed a match-making app as part of a team of 6, implemented backend integration for profile pages and image storage in Firebase. Integrated Google Maps APIs for location-based features. Tech Stack: Flutter, Firebase. Received Silver Award.",
+      },
+      {
+        Tenure: "July 2022 - July 2023",
+        Company: "CAREER DEVELOPMENT CELL, IIT JODHPUR",
+        Designation: "Web Development Team",
+        Description:
+          "Revamped placement cell portal used by 1200 students/year during placement season. Formed junior support team. Tech Stack: ReactJS, Django.",
+      },
+      {
+        Tenure: "May 2022",
+        Company: "FURNITURE BOUTIQ BY ZARA INDUSTRIES, JODHPUR",
+        Designation: "Web Development Intern",
+        Description:
+          "Revamped frontend of company’s primary e-commerce website. Developed REST API endpoints to fetch product data from admin portal. Tech Stack: ReactJS, NodeJS.",
+      },
+    ];
   
-  const fetchTestimonials = () => {
-    axios.get("https://ayush-portfolio-backend.onrender.com/testimonials", {
-      headers: {
-        "Accept": "application/json"
-      }
-    })
-    .then(response => {
-      setTestimonials(response.data);
-    })
-    .catch(error => console.log(error));
-  };
-  
-  useEffect(() => {
-    fetchTestimonials();
-  }, []);
-  
+
   return (
     <div id="testimonials">
-      <Box
-        maxWidth={{ sm: 720, md: 1236 }}
-        width={1}
-        margin="0 auto"
-        paddingX={2}
-        paddingY={{ xs: 4, sm: 6, md: 8 }}
-      >
-        <Box>
           <Box marginBottom={4}>
             <Typography
               variant="h2"
@@ -72,145 +64,30 @@ const Testimonials = () => {
               Places where I worked before :
             </Typography>
           </Box>
-          <Grid container spacing={4}>
-            {testimonials.map((item, i) => (
-              <Grid item xs={12} sm={6} md={6} key={i}>
-                <Box
-                  display="block"
-                  width={1}
-                  height={1}
-                  alignItems='center'
-                  sx={{
-                    textDecoration: "none",
-                    transition: "all .2s ease-in-out",
-                    "&:hover": {
-                      transform: "translateY(-4px)",
-                    },
-                  }}
-                >
-                  <Box
-                    component={Card}
-                    padding={4}
-                    borderRadius={2}
-                    width={1}
-                    height={1}
-                    data-aos="fade-up"
-                    data-aos-delay={i * 100}
-                    data-aos-offset={100}
-                    data-aos-duration={600}
-                    variant='elevation'
-                    alignItems="center"
-                    sx={{backgroundColor: '#f565394d',
-                    "&:hover": {
-                      backgroundColor: "#f565396d",
-                    },
-                  }}
-                  >
-                    <Box 
-                      display="flex" 
-                      flexDirection="column"
-                      
-                    >
-                      <Box
-                        component={Avatar}
-                        width={60}
-                        height={50}
-                        marginBottom={2}
-                        // backgroundColor={theme.palette.primary.main}
-                        sx={{backgroundColor: "#f56539"}}
-                        color={"white"}
-                      >
-                        {/* <Icon>
-                        </Icon> */}
-                        <WorkOutlineIcon/>
-                      </Box>
-                      <Typography
-                        variant="h6"
-                        gutterBottom
-                        sx={{ fontWeight: 700 }}
-                        color={'#f56539'}
-                      >
-                        {item.Tenure}
-                      </Typography>
-                      <Typography color={'#fff'} sx={{ fontWeight: 500 }}>
-                        {item.Company}
-                      </Typography>
-                      <Typography color={'#fff'} sx={{ fontWeight: 500 }}>
-                        {item.Designation}
-                      </Typography>
-                    </Box>
-                  </Box>
-                </Box>
-              </Grid>
-            ))}
-          </Grid>
-          {/* <Grid container spacing={4}>
-            {testimonials.map((item, i) => (
-              <Grid item xs={12} sm={6} md={4} key={i}>
-                <Box
-                  display="block"
-                  width={1}
-                  height={1}
-                  sx={{
-                    textDecoration: "none",
-                    transition: "all .2s ease-in-out",
-                    "&:hover": {
-                      transform: "translateY(-4px)",
-                    },
-                  }}
-                >
-                  <Box
-                    component={Card}
-                    padding={4}
-                    borderRadius={2}
-                    width={1}
-                    height={1}
-                    data-aos="fade-up"
-                    data-aos-delay={i * 100}
-                    data-aos-offset={100}
-                    data-aos-duration={600}
-                    variant="outlined"
-                  >
-                    <Box 
-                      display="flex" 
-                      flexDirection="column"
-                    >
-                      <Box marginBottom={2}>
-                        <FontAwesomeIcon 
-                          icon={faCommentDots} 
-                          style={{ 
-                            color: theme.palette.primary.main,
-                            height: 45, 
-                            width: 45
-                          }} 
-                        />
-                      </Box>
-                      <Typography
-                        gutterBottom
-                        color={theme.palette.text.secondary}
-                      >
-                        {item.testimonial}
-                      </Typography>
-                      <ListItem component="div" disableGutters sx={{ padding: 0, marginTop: 1 }}>
-                        <ListItemAvatar>
-                          <Avatar src={item.author_photo} />
-                        </ListItemAvatar>
-                        <ListItemText
-                          sx={{ margin: 0 }}
-                          primary={item.author_name}
-                          secondary={item.author_title}
-                        />
-                      </ListItem>
-                    </Box>
-                  </Box>
-                </Box>
-              </Grid>
-            ))}
-          </Grid> */}
-        </Box>
-      </Box>
+      <VerticalTimeline animate>
+        {testimonialsData.map((item, i) => (
+          <VerticalTimelineElement
+            visible
+            key={i}
+            date={item.Tenure}
+            iconStyle={{ background: "#f56539", color: "#fff" }}
+            icon ={<WorkOutlineIcon/>}
+            contentStyle={{
+              background: "#212121", // Background color
+              color: "#fff",         // Text color
+              boxShadow: "0px 0px 30px #f565394d", // Box shadow
+            }}
+
+          >
+            <h3 className="vertical-timeline-element-title">{item.Company}</h3>
+            <p>{item.Designation}</p>
+            <p>{item.Description}</p>
+          </VerticalTimelineElement>
+        ))}
+      </VerticalTimeline>
       <Divider />
     </div>
+    
   );
 };
 

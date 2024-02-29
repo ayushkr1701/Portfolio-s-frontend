@@ -129,7 +129,7 @@ const Sidebar = ({ open, onClose }) => {
                 </IconButton>
                 <IconButton 
                   aria-label="Instagram" 
-                  href="https://www.instagram.com/ayush_.kr_/"
+                  href="https://www.instagram.com/ayxshhhhh.__/"
                   target="_blank"
                   sx={{ 
                     color: "#fff",

@@ -31,15 +31,25 @@ const Contact = () => {
   //   .catch(error => console.log(error));
   // };
   
-  useEffect(() => {
-    async function fetchContact(){
-      const response= await fetch('https://ayush-portfolio-backend.onrender.com/contact');
-      const data= await response.json();
-      setContact(data);
+  // useEffect(() => {
+  //   async function fetchContact(){
+  //     const response= await fetch('https://ayush-portfolio-backend.onrender.com/contact');
+  //     const data= await response.json();
+  //     setContact(data);
 
-    }
-    fetchContact();
-  }, []);
+  //   }
+  //   fetchContact();
+  // }, []);
+  const contactData =[
+    {name:"Ayush Kumar",
+    email:'kumar.242@iitj.ac.in',
+    phone:"+919509191973",
+    address: "Hostel B1, IIT Jodhpur, Jodhpur, Rajasthan, India, 342037",
+    latitude: "26.4710",
+    longitude: "73.1134"
+  
+  },
+  ]
     
   return (
     <div id="contact">
@@ -79,7 +89,7 @@ const Contact = () => {
               Do you need a full-stack web developer? I would love to hear from you.
             </Typography>
           </Box>
-          {contact.map((item,i) => (
+          {contactData.map((item,i) => (
             <Grid container spacing={3} key={i}>
               <Grid item md={3} xs={12}>
                 <Box marginTop={3} marginBottom={2} justifyContent="center">
@@ -185,7 +195,7 @@ const Contact = () => {
               <Grid item md={8} xs={12}>
                 <Map 
                   coordinates={[item.latitude, item.longitude]} 
-                  zoom={13} 
+                  zoom={15} 
                 />
               </Grid>
             </Grid>

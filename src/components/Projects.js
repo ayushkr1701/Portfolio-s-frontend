@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -10,28 +9,38 @@ import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
+import FBFronted from "../assets/images/FBFrontend.png";
+import MMApp from "../assets/images/MMAPP.png";
+import MetaMask from "../assets/images/MetaMask.png";
 
 const Projects = () => {
   const theme = useTheme();
-  
-  const [projects, setProjects] = useState([]);
-  
-  const fetchProjects = () => {
-    axios.get("https://ayush-portfolio-backend.onrender.com/projects", {
-      headers: {
-        "Accept": "application/json",
-      }
-    })
-    .then(response => {
-      setProjects(response.data);
-    })
-    .catch(err => console.log(err));
-  };
-  
-  useEffect(() => {
-    fetchProjects();
-  }, []);
-  
+
+  // Sample static data
+  const projectsData = [
+    {
+      name: "E-commerce  Website",
+      description: "I revamped the frontend of the company's main eCommerce website, enhancing its user interface and overall design. Additionally, I developed several end-to-end REST API endpoints to efficiently retrieve product images and details from the admin portal and display them on the client site. The technologies employed in this project included ReactJS for the frontend and NodeJS for the backend. ",
+      tags: [{ name: "ReactJS" }, { name: "NodeJS" }],
+      link: "https://furnitureboutiq.com",
+      image: FBFronted,
+    },
+    {
+      name: "AI Match Making App",
+      description: "Match Making App is a cutting-edge sports matchmaking app designed to connect high school sports enthusiasts of Japan in an engaging and intelligent way. With its seamless integration of Flutter for a beautiful and responsive user interface, Firebase Authentication for secure user sign-up, and Google Maps SDK for accurate location services, this app transforms the way users find and connect with potential sports teammates or opponents ",
+      tags: [{ name: "Flutter" }, { name: "Firebase" }],
+      link: "https://docs.google.com/document/d/14uj-_mkS6s-N9Yfdv-kXpFhx5P-xpiI1JBaYY1aKIvw/edit?usp=sharing",
+      image: MMApp,
+    },
+    {
+      name: "MetaMask Snap",
+      description: "I developed a Metamask Snap using the Metamask Snap API and JavaScript. This Snap enhances transaction management for users by incorporating features such as making payments to multiple addresses through a CSV file, automating payments with a scheduler, and providing graphical representation of past transactions. These functionalities aim to streamline and improve the overall user experience in handling transactions through Metamask. ",
+      tags: [{ name: "Web3" }, { name: "JavaScript" }],
+      link: "https://github.com/ayushkr1701/Metamask-Snap",
+      image: MetaMask,
+    },
+  ];
+
   return (
     <div id="projects">
       <Box
@@ -50,7 +59,8 @@ const Projects = () => {
             marginTop="5px"
             data-aos="fade-up"
             gutterBottom
-            color={'#f56539'}>
+            color={"#f56539"}
+          >
             Projects
           </Typography>
           <Typography
@@ -61,11 +71,11 @@ const Projects = () => {
             marginTop={4}
             marginBottom={6}
           >
-            Here are some of my latest projects :
+            Here are some of my latest projects:
           </Typography>
         </Box>
         <Grid container spacing={4}>
-          {projects.map((item, i) => (
+          {projectsData.map((item, i) => (
             <Grid key={i} item xs={12}>
               <Box
                 display="block"
@@ -113,7 +123,8 @@ const Projects = () => {
                         maxHeight: 360,
                         borderRadius: 2,
                         filter: "none",
-                        transition: "opacity, transform ease 0.3s !important",
+                        transition:
+                          "opacity, transform ease 0.3s !important",
                         "&:hover": {
                           transform: "scale(1.1)",
                         },
@@ -152,17 +163,16 @@ const Projects = () => {
                           href=""
                           clickable
                           size="small"
-                          // color="#f56539"
-                          sx={{ 
-                            marginBottom: 1, 
+                          sx={{
+                            marginBottom: 1,
                             marginRight: 1,
                             color: "#fff",
-                            backgroundColor:"#f56539",
+                            backgroundColor: "#f56539",
                             "&:hover": {
                               backgroundColor: "transparent",
                               color: "#fff",
-                              border: "1px solid " + "#f56539"
-                            }
+                              border: "1px solid " + "#f56539",
+                            },
                           }}
                         />
                       ))}
@@ -179,35 +189,17 @@ const Projects = () => {
                           "&:hover": {
                             backgroundColor: "#f56539",
                             color: "#fff",
-                            border: "1px solid " + "#fff"
-                          }
+                            border: "1px solid " + "#fff",
+                          },
                         }}
-                        // endIcon={
-                        //   <Box
-                        //     component={"svg"}
-                        //     xmlns="http://www.w3.org/2000/svg"
-                        //     fill="none"
-                        //     viewBox="0 0 24 24"
-                        //     stroke="currentColor"
-                        //     width={24}
-                        //     height={24}
-                        //   >
-                        //     {/* <path
-                        //       strokeLinecap="round"
-                        //       strokeLinejoin="round"
-                        //       strokeWidth={2}
-                        //       d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        //     /> */}
-                        //   </Box>
-                        // }
                       >
-                        Source Code
+                        Source Code/Deployment
                       </Button>
                     </Box>
                   </CardContent>
                 </Box>
               </Box>
-            </Grid>            
+            </Grid>
           ))}
         </Grid>
       </Box>
@@ -215,5 +207,5 @@ const Projects = () => {
     </div>
   );
 };
-  
+
 export default Projects;

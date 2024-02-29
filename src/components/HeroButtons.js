@@ -29,7 +29,7 @@ const HeroButtons = () => {
           size="large"
           download="resume"
           target="_blank"
-          href="https://drive.google.com/file/d/1p4NvEBt7T1uypJrd34Qf3kQsAmnbwMQ1/view?usp=sharing"
+          href="https://drive.google.com/file/d/1sWVVwvvPFgdkEqZoRXwHOpPUNWKM9A2-/view?usp=sharing"
           rel='noreferrer'
           endIcon={<FileDownloadOutlinedIcon />}
           fullWidth={isMd ? false : true}

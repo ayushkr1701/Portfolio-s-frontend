@@ -1,36 +1,43 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
-import CardMedia from "@mui/material/CardMedia";
-import CardContent from "@mui/material/CardContent";
-import Divider from "@mui/material/Divider";
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
-import { useTheme } from "@mui/material/styles";
 import Marquee from "react-fast-marquee";
+import Divider from "@mui/material/Divider";
+import Typography from "@mui/material/Typography";
+import Python from "../assets/logo/python.svg";
+import BootStrap from "../assets/logo/bootstrap.svg";
+import CSS from "../assets/logo/css.svg";
+import Django from "../assets/logo/django.svg";
+import Git from "../assets/logo/git.svg";
+import HTML from "../assets/logo/html.svg";
+import MaterialUI from "../assets/logo/material-ui.svg";
+import NextJS from "../assets/logo/nextjs.svg";
+import PostgreSQL from "../assets/logo/postgresql.svg";
+import ReactIcon from "../assets/logo/react.svg";
+import TypeScript from "../assets/logo/typescriptlang-icon.svg";
+import Flutter from "../assets/logo/flutterio-icon.svg";
+import Firebase from "../assets/logo/firebase-icon.svg";
+import Shopify from "../assets/logo/shopify-icon.svg"
+
 
 const Technologies = () => {
-  const theme = useTheme();
-  
-  const [technologies, setTechnologies] = useState([]);
-  
-  const fetchTechnologies = () => {
-    axios.get("https://ayush-portfolio-backend.onrender.com/technologies", {
-      headers: {
-        "Accept": "application/json",
-      }
-    })
-    .then(response => {
-      setTechnologies(response.data);
-    })
-    .catch(err => console.log(err));
-  };
-  
-  useEffect(() => {
-    fetchTechnologies();
-  }, []);
-  
+  const technologies = [
+    { id: 1, name: "Python", icon: Python },
+    { id: 2, name: "BootStrap", icon: BootStrap },
+    { id: 3, name: "CSS", icon: CSS },
+    { id: 4, name: "Django", icon: Django },
+    { id: 5, name: "Git", icon: Git },
+    { id: 6, name: "HTML", icon: HTML },
+    { id: 7, name: "Material-UI", icon: MaterialUI },
+    { id: 8, name: "Next.js", icon: NextJS },
+    { id: 9, name: "PostgreSQL", icon: PostgreSQL },
+    { id: 10, name: "React", icon: ReactIcon },
+    { id: 11, name: "TypeScript", icon: TypeScript },
+    { id: 12, name: "Flutter", icon: Flutter },
+    { id: 13, name: "Firebase", icon: Firebase },
+    {id:14, name: "Shopify", icon: Shopify},
+  ];
+
   return (
     <div id="technologies">
       <Box
@@ -47,9 +54,8 @@ const Technologies = () => {
               fontWeight={1000}
               fontSize={"3.2rem"}
               marginTop="5px"
-              data-aos="fade-up"
               gutterBottom
-              color={'#f56539'}
+              color={"#f56539"}
               align="center"
             >
               Skills
@@ -58,100 +64,46 @@ const Technologies = () => {
               variant="h4"
               align="center"
               color={"#fff"}
-              data-aos="fade-up"
               marginTop={4}
               marginBottom={6}
             >
               Tech stacks I'm familiar with:
             </Typography>
           </Box>
-          <Marquee      gradient={false} 
-                        speed={80} 
-                        pauseOnHover={true}
-                        pauseOnClick={true} 
-                        delay={0}
-                        play={true} 
-                        direction="left">
-            {technologies.map((item, i)=>(
-              <Card sx={{
-                background: "#FAFAFA",
-                backgroundColor: "#212121",
-                boxShadow: '0px 0px 30px #f565394d',
-                // boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.12)',
-                borderRadius: '10px',
-                width: '160px',
-                height: '160px',
-                margin: '1.5rem',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                padding: '2rem 1rem',
-                transition: '300ms ease-in-out',
-                color: "#fff"
-              }} key={item.id}>
-                <img src={item.icon} style={{height: "50px", margin: "15px"}}/>
-                
+          <Marquee
+            gradient={false}
+            speed={80}
+            pauseOnHover={true}
+            pauseOnClick={true}
+            delay={0}
+            play={true}
+            direction="left"
+          >
+            {technologies.map((item) => (
+              <Card
+                key={item.id}
+                sx={{
+                  background: "#FAFAFA",
+                  backgroundColor: "#212121",
+                  boxShadow: "0px 0px 30px #f565394d",
+                  borderRadius: "10px",
+                  width: "160px",
+                  height: "160px",
+                  margin: "1.5rem",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: "2rem 1rem",
+                  transition: "300ms ease-in-out",
+                  color: "#fff",
+                }}
+              >
+                <img src={item.icon} style={{ height: "50px", margin: "15px" }} alt={`${item.name} icon`} />
                 {item.name}
               </Card>
             ))}
           </Marquee>
-          {/* <Grid container spacing={2}>
-            {technologies.map((item, i) => (
-              <Grid item xs={12} md={3} key={i}>
-                <Box
-                  width={1}
-                  height={1}
-                  data-aos="fade-up"
-                  data-aos-delay={100}
-                  data-aos-offset={100}
-                  data-aos-duration={600}
-                  component={Card}
-                  backgroundColor={"#f56539"}
-                  display="flex"
-                  flexDirection="column"
-                  alignItems="center"
-                  boxShadow={0}
-                  variant="outlined"
-                  borderRadius={2}
-                > 
-                  <CardContent
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      transition: "all .2s ease-in-out",
-                      "&:hover": {
-                        transform: `translateY(-${theme.spacing(1)})`,
-                      },
-                    }}
-                  >
-                    <Box marginBottom={1}>
-                      <Box
-                        component={CardMedia}
-                        width={60}
-                        height={60}
-                        marginBottom={2}
-                        backgroundColor="transparent"
-                        variant="rounded"
-                        borderRadius={2}
-                        image={item.icon}
-                      />
-                    </Box>
-                    <Typography 
-                      align="center"
-                      color={theme.palette.text.primary}
-                      fontWeight="bold"
-                    >
-                      {item.name}
-                    </Typography>
-                  </CardContent>
-                </Box>
-                
-              </Grid>
-              
-            ))}
-          </Grid> */}
         </Box>
       </Box>
       <Divider />

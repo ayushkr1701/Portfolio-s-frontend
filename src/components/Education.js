@@ -9,26 +9,33 @@ import Icon from "@mui/material/Icon";
 import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
 import { yellow } from "@mui/material/colors";
+import SchoolIcon from '@mui/icons-material/School';
 
 const Education = () => {
   const theme = useTheme();
   const [about, setAbout] = useState([]);
+  const educationData = [
+    {
+      title: "INDIAN INSTITUTE OF TECHNOLOGY, JODHPUR",
+      SchoolName: "B.Tech(2020-2024)",
+      CGPA: "Current CGPA: 7.28(out of 10)",
+      icon: SchoolIcon, // Use the imported school icon
+    },
+    {
+      title: "ST. JUDES VIDYALYA, BARAUNI",
+      SchoolName: "Senior School Education(2017-2019)",
+      CGPA: "Marks: 463(out of 500)",
+      icon: SchoolIcon, // Use the imported university icon
+    },
+    {
+      title: "RK CHILDREN'S ACAD, BEGUSARAI",
+      SchoolName: "Secondary School Education(2015-2017)",
+      CGPA: "CGPA: 10(out of 10)",
+      icon: SchoolIcon, // Use the imported university icon
+    },
+    // Add more items if needed
+  ];
   
-  const fetchAbout = () => {
-    axios.get("https://ayush-portfolio-backend.onrender.com/about", {
-      headers: {
-        "Accept": "application/json"
-      }
-    })
-    .then(response => {
-      setAbout(response.data);
-    })
-    .catch(error => console.log(error));
-  };
-  
-  useEffect(() => {
-    fetchAbout();
-  }, []);
   
   return (
     <div id="education">
@@ -70,7 +77,7 @@ const Education = () => {
             </Typography>
           </Box>
           <Grid container spacing={4}>
-            {about.map((item, i) => (
+            {educationData.map((item, i) => (
               <Grid item xs={12} sm={4} md={4} key={i}>
                 <Box
                   display="block"
@@ -117,9 +124,10 @@ const Education = () => {
                         sx={{backgroundColor: "#f56539"}}
                         color={"white"}
                       >
-                        <Icon>
+                        <SchoolIcon/>
+                        {/* <Icon>
                           {item.icon}
-                        </Icon>
+                        </Icon> */}
                       </Box>
                       <Typography
                         variant="h6"
