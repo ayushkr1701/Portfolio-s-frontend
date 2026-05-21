@@ -52,8 +52,9 @@ const Layout = ({ children }) => {
     <Box 
       id="page-top"
       sx={{
-        backgroundColor: "#212121",
-        height: '100%'
+        backgroundColor: "#08111f",
+        color: "text.primary",
+        minHeight: '100%'
       }}
     >
       <Header onSidebarOpen={handleSidebarOpen} />
@@ -85,11 +86,11 @@ const Layout = ({ children }) => {
               size="small" 
               aria-label="scroll back to top"
               sx={{
-                backgroundColor: "#f56539",
+                backgroundColor: "primary.main",
+                color: "#06111f",
+                boxShadow: "0 16px 35px rgba(56, 189, 248, 0.28)",
                 "&:hover": {
-                  backgroundColor: "transparent",
-                  color: "#f56539",
-                  border: "2px solid" + "#f56539",
+                  backgroundColor: "primary.light",
                 },
               }}
             >

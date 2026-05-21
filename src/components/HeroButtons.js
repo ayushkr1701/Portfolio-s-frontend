@@ -19,29 +19,30 @@ const HeroButtons = () => {
         display="flex"
         flexDirection={{ xs: "column", sm: "row" }}
         alignItems={{ xs: "stretched", sm: "flex-start" }}
-        justifyContent="center"
-        marginTop={4}
+        justifyContent="flex-start"
+        marginTop={3}
       >
         <Button
           component="a"
           variant="contained"
           // color="primary"
           size="large"
-          download="resume"
+          download="Resume Ayush Kumar IIT Jodhpur.pdf"
           target="_blank"
-          href="https://drive.google.com/file/d/1sWVVwvvPFgdkEqZoRXwHOpPUNWKM9A2-/view?usp=sharing"
+          href="/Resume Ayush Kumar IIT Jodhpur.pdf"
           rel='noreferrer'
           endIcon={<FileDownloadOutlinedIcon />}
           fullWidth={isMd ? false : true}
           disableElevation={true}
           sx={{
-            marginRight: "15px",
-            color: "#fff",
-            backgroundColor: "transparent",
-            border: "2px solid " + "#f56539",
+            marginRight: { sm: "15px" },
+            color: "#06111f",
+            background: "linear-gradient(135deg, #38bdf8, #7dd3fc)",
+            border: "1px solid rgba(125, 211, 252, 0.65)",
+            boxShadow: "0 18px 38px rgba(56, 189, 248, 0.22)",
             "&:hover": {
-              backgroundColor: "#f56539",
-              border: "2px solid " + "#fff"
+              background: "linear-gradient(135deg, #7dd3fc, #38bdf8)",
+              boxShadow: "0 22px 46px rgba(56, 189, 248, 0.32)",
             }
           }}
         >
@@ -62,13 +63,14 @@ const HeroButtons = () => {
             fullWidth={isMd ? false : true}
             disableElevation={true}
             sx={{
-              border: "2px solid " + "#fff",
-              color: "#f56539",
-              backgroundColor: "#transparent",
+              border: "1px solid rgba(148, 163, 184, 0.32)",
+              color: "#e2e8f0",
+              backgroundColor: "rgba(255, 255, 255, 0.03)",
+              backdropFilter: "blur(10px)",
               "&:hover": {
-                backgroundColor: "#f56539",
+                backgroundColor: "rgba(56, 189, 248, 0.12)",
                 color: "#fff",
-                border: "2px solid " + "#f56539"
+                border: "1px solid rgba(56, 189, 248, 0.65)",
               }
             }}
           >

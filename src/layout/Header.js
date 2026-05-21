@@ -6,24 +6,16 @@ import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Link from "@mui/material/Link";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
-import { useTheme } from "@mui/material/styles";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import MenuIcon from "@mui/icons-material/Menu";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
 // Font Awesome Icons
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faLaptopCode } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-library.add(faLaptopCode);
-
 import CustomButton from "../components/CustomButton";
 
 const Header = ({ onSidebarOpen }) => {
-  const theme = useTheme();
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 38,
@@ -37,7 +29,10 @@ const Header = ({ onSidebarOpen }) => {
         sx={{
           top: 0,
           border: 0,
-          backgroundColor: trigger ? "#f56539" : "#212121",
+          backgroundColor: trigger ? "rgba(8, 17, 31, 0.86)" : "rgba(8, 17, 31, 0.52)",
+          backdropFilter: "blur(18px)",
+          borderBottom: "1px solid rgba(148, 163, 184, 0.14)",
+          boxShadow: trigger ? "0 18px 45px rgba(2, 8, 23, 0.35)" : "none",
         }}
       >
         <Toolbar sx={{ minHeight: 70 }}>
@@ -45,7 +40,7 @@ const Header = ({ onSidebarOpen }) => {
             onClick={() => onSidebarOpen()}
             aria-label="Menu"
             sx={{ 
-              color: "#212121",
+              color: "#fff",
               display: { xs: "block", md: "none" } 
             }}
           >
@@ -115,6 +110,7 @@ const Header = ({ onSidebarOpen }) => {
             sx={{ 
               height: 32, 
               mx: 2,
+              borderColor: "rgba(148, 163, 184, 0.18)",
               display: { lg: "flex", md: "none", xs: "none" } 
             }} 
           />

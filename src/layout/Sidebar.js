@@ -2,33 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 //import Link from "next/link";
 import { Link } from 'react-router-dom';
-import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
-import { useTheme } from "@mui/material/styles";
-import DevicesIcon from "@mui/icons-material/Devices";
-import EmailIcon from "@mui/icons-material/EmailOutlined";
-import HomeIcon from "@mui/icons-material/HomeOutlined";
-import InfoIcon from "@mui/icons-material/InfoOutlined";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import ListIcon from "@mui/icons-material/FormatListBulleted";
 import GitHubIcon from "@mui/icons-material/GitHub";
-
-// Font Awesome Icons
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faLaptopCode } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-library.add(faLaptopCode);
 
 import CustomButton from "../components/CustomButton";
 
 const Sidebar = ({ open, onClose }) => {
-  const theme = useTheme();
-  
   return (
     <React.Fragment>
       <Drawer
@@ -40,7 +24,9 @@ const Sidebar = ({ open, onClose }) => {
           "& .MuiPaper-root": {
             width: "100%",
             maxWidth: 280,
-            backgroundColor: "#212121"
+            backgroundColor: "rgba(8, 17, 31, 0.96)",
+            borderRight: "1px solid rgba(148, 163, 184, 0.16)",
+            backdropFilter: "blur(18px)",
           }
         }}
       >

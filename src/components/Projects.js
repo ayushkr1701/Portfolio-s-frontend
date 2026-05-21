@@ -8,33 +8,37 @@ import Chip from "@mui/material/Chip";
 import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import { useTheme } from "@mui/material/styles";
 import FBFronted from "../assets/images/FBFrontend.png";
 import MMApp from "../assets/images/MMAPP.png";
 import MetaMask from "../assets/images/MetaMask.png";
+import SkincarePlatform from "../assets/images/skincare-platform.svg";
 
 const Projects = () => {
-  const theme = useTheme();
-
   // Sample static data
   const projectsData = [
     {
+      name: "Skincare Consumer Awareness Platform",
+      description: "Built a skincare discovery platform that turns user profile inputs into personalized product recommendations. Owned the React + Vite frontend, Python vector recommendation backend, Dockerized Azure deployment, Cloudflare frontend deployment, and Mixpanel analytics so the product could learn from real user behavior.",
+      tags: [{ name: "React Vite" }, { name: "Python" }, { name: "Vector Search" }, { name: "Azure" }, { name: "Docker" }, { name: "Cloudflare" }, { name: "Mixpanel" }],
+      image: SkincarePlatform,
+    },
+    {
       name: "E-commerce  Website",
-      description: "I revamped the frontend of the company's main eCommerce website, enhancing its user interface and overall design. Additionally, I developed several end-to-end REST API endpoints to efficiently retrieve product images and details from the admin portal and display them on the client site. The technologies employed in this project included ReactJS for the frontend and NodeJS for the backend. ",
+      description: "Revamped the company's e-commerce frontend to improve page speed by 40% and mobile responsiveness across 10+ product pages. Built REST API endpoints that pulled product images and metadata from the admin portal into the customer-facing storefront.",
       tags: [{ name: "ReactJS" }, { name: "NodeJS" }],
       link: "https://furnitureboutiq.com",
       image: FBFronted,
     },
     {
       name: "AI Match Making App",
-      description: "Match Making App is a cutting-edge sports matchmaking app designed to connect high school sports enthusiasts of Japan in an engaging and intelligent way. With its seamless integration of Flutter for a beautiful and responsive user interface, Firebase Authentication for secure user sign-up, and Google Maps SDK for accurate location services, this app transforms the way users find and connect with potential sports teammates or opponents ",
+      description: "Built a sports matchmaking app for high school athletes in Japan, helping users find nearby teammates and opponents. Implemented Flutter screens, Firebase authentication and storage flows, and Google Maps powered location picking and distance features.",
       tags: [{ name: "Flutter" }, { name: "Firebase" }],
       link: "https://docs.google.com/document/d/14uj-_mkS6s-N9Yfdv-kXpFhx5P-xpiI1JBaYY1aKIvw/edit?usp=sharing",
       image: MMApp,
     },
     {
       name: "MetaMask Snap",
-      description: "I developed a Metamask Snap using the Metamask Snap API and JavaScript. This Snap enhances transaction management for users by incorporating features such as making payments to multiple addresses through a CSV file, automating payments with a scheduler, and providing graphical representation of past transactions. These functionalities aim to streamline and improve the overall user experience in handling transactions through Metamask. ",
+      description: "Developed a MetaMask Snap to simplify transaction management for Web3 users. Added CSV-based multi-address payments, scheduled payment automation, and visual transaction history so repeated wallet operations became easier to manage.",
       tags: [{ name: "Web3" }, { name: "JavaScript" }],
       link: "https://github.com/ayushkr1701/Metamask-Snap",
       image: MetaMask,
@@ -55,17 +59,16 @@ const Projects = () => {
             variant="h2"
             fontWeight={1000}
             align={"center"}
-            fontSize={"3.2rem"}
             marginTop="5px"
             data-aos="fade-up"
             gutterBottom
-            color={"#f56539"}
+            color={"#f8fafc"}
           >
             Projects
           </Typography>
           <Typography
             variant="h5"
-            color={"#fff"}
+            color={"text.secondary"}
             align="center"
             data-aos="fade-up"
             marginTop={4}
@@ -83,9 +86,9 @@ const Projects = () => {
                 height={1}
                 sx={{
                   textDecoration: "none",
-                  transition: "all .2s ease-in-out",
+                  transition: "all .25s ease-in-out",
                   "&:hover": {
-                    transform: "translateY(-4px)",
+                    transform: "translateY(-8px)",
                   },
                 }}
               >
@@ -93,14 +96,16 @@ const Projects = () => {
                   component={Card}
                   width={1}
                   height={1}
-                  borderRadius={0}
-                  boxShadow={0}
+                  borderRadius={2}
                   display="flex"
                   flexDirection={{
                     xs: "column",
                     md: i % 2 === 0 ? "row-reverse" : "row",
                   }}
-                  sx={{ backgroundImage: "none", bgcolor: "transparent" }}
+                  sx={{
+                    overflow: "hidden",
+                    background: "linear-gradient(145deg, rgba(15, 23, 42, 0.82), rgba(8, 17, 31, 0.72))",
+                  }}
                 >
                   <Box
                     sx={{
@@ -121,7 +126,7 @@ const Projects = () => {
                       sx={{
                         objectFit: "cover",
                         maxHeight: 360,
-                        borderRadius: 2,
+                        borderRadius: 0,
                         filter: "none",
                         transition:
                           "opacity, transform ease 0.3s !important",
@@ -146,12 +151,11 @@ const Projects = () => {
                       fontWeight={700}
                       marginBottom={1}
                       fontSize={"1.5rem"}
-                      sx={{ textTransform: "uppercase" }}
-                      color={"#fff"}
+                      color={"#f8fafc"}
                     >
                       {item.name}
                     </Typography>
-                    <Typography color="#fff">
+                    <Typography color="text.secondary" sx={{ lineHeight: 1.75 }}>
                       {item.description}
                     </Typography>
                     <Box marginTop={3} marginBottom={1}>
@@ -166,36 +170,38 @@ const Projects = () => {
                           sx={{
                             marginBottom: 1,
                             marginRight: 1,
-                            color: "#fff",
-                            backgroundColor: "#f56539",
+                            color: "#bae6fd",
+                            backgroundColor: "rgba(56, 189, 248, 0.1)",
+                            border: "1px solid rgba(56, 189, 248, 0.24)",
                             "&:hover": {
-                              backgroundColor: "transparent",
+                              backgroundColor: "rgba(56, 189, 248, 0.18)",
                               color: "#fff",
-                              border: "1px solid " + "#f56539",
                             },
                           }}
                         />
                       ))}
                     </Box>
-                    <Box marginTop={2} display="flex" justifyContent="flex-end">
-                      <Button
-                        component="a"
-                        href={item.link}
-                        target="_blank"
-                        sx={{
-                          backgroundColor: "transparent",
-                          border: "1px solid " + "#f56539",
-                          color: "#f56539",
-                          "&:hover": {
-                            backgroundColor: "#f56539",
-                            color: "#fff",
-                            border: "1px solid " + "#fff",
-                          },
-                        }}
-                      >
-                        Source Code/Deployment
-                      </Button>
-                    </Box>
+                    {item.link && (
+                      <Box marginTop={2} display="flex" justifyContent="flex-end">
+                        <Button
+                          component="a"
+                          href={item.link}
+                          target="_blank"
+                          sx={{
+                            backgroundColor: "rgba(255, 255, 255, 0.03)",
+                            border: "1px solid rgba(56, 189, 248, 0.36)",
+                            color: "#7dd3fc",
+                            "&:hover": {
+                              backgroundColor: "rgba(56, 189, 248, 0.12)",
+                              color: "#fff",
+                              border: "1px solid rgba(125, 211, 252, 0.6)",
+                            },
+                          }}
+                        >
+                          Source Code/Deployment
+                        </Button>
+                      </Box>
+                    )}
                   </CardContent>
                 </Box>
               </Box>

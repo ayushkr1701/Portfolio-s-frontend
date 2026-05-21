@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useTheme } from "@mui/material/styles";
-import { MapContainer, Circle, Marker } from "react-leaflet";
+import { MapContainer, Circle } from "react-leaflet";
 import ReactLeafletGoogleLayer from 'react-leaflet-google-layer';
 import "leaflet/dist/leaflet.css";
 
@@ -24,7 +24,7 @@ const Map = ({ coordinates, zoom }) => {
       zoom={zoom}
       scrollWheelZoom={false}
       whenCreated={setMap}
-      style={{ height: "400px", width: "100%" }}
+      style={{ height: "400px", width: "100%", borderRadius: "8px", overflow: "hidden", boxShadow: "0 24px 70px rgba(2, 8, 23, 0.42)" }}
     >
       <ReactLeafletGoogleLayer
         googleMapsLoaderConf={{

@@ -1,10 +1,7 @@
 import React from "react";
 import Button from "@mui/material/Button";
-import { useTheme } from "@mui/material/styles";
 
-const CustomButton = ({ href, icon, text }) => {
-  const theme = useTheme();
-  
+const CustomButton = ({ href, text }) => {
   return (
     <Button
       component="a"
@@ -13,16 +10,18 @@ const CustomButton = ({ href, icon, text }) => {
       size="small"
       variant="text"
       sx={{
-        color: "#fff",
-        fontSize: theme.typography.h4,
+        color: "rgba(248, 250, 252, 0.78)",
+        fontSize: "0.92rem",
         fontWeight: "600",
         textTransform: "none",
         mr: 2,
+        px: 1,
         "&:active": {
-          color: "#212121"
+          color: "primary.main"
         },
         "&:hover": {
-          color: "#fff"
+          color: "#fff",
+          backgroundColor: "rgba(255, 255, 255, 0.06)",
         },
         "& svg": {
           mr: 0.5

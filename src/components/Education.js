@@ -1,24 +1,18 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid";
-import Icon from "@mui/material/Icon";
 import Typography from "@mui/material/Typography";
-import { useTheme } from "@mui/material/styles";
-import { yellow } from "@mui/material/colors";
 import SchoolIcon from '@mui/icons-material/School';
 
 const Education = () => {
-  const theme = useTheme();
-  const [about, setAbout] = useState([]);
   const educationData = [
     {
       title: "INDIAN INSTITUTE OF TECHNOLOGY, JODHPUR",
-      SchoolName: "B.Tech(2020-2024)",
-      CGPA: "Current CGPA: 7.28(out of 10)",
+      SchoolName: "B.Tech, July 2020 - May 2024",
+      CGPA: "CGPA: 7.11 / 10.0",
       icon: SchoolIcon, // Use the imported school icon
     },
     {
@@ -46,28 +40,22 @@ const Education = () => {
         margin="0 auto"
         paddingX={2}
         paddingY={{ xs: 4, sm: 6, md: 8 }}
-        sx={{
-          backgroundColor: "rgb(33, 33, 33)"
-        }}
       >
         <Box>
           <Box marginBottom={4}>
             <Typography
               variant="h1"
-              // sx={{textSize: "1000px"}}
               align="center"
-              fontWeight={1000}
-              fontSize={"3.2rem"}
               marginTop="5px"
               data-aos="fade-up"
               gutterBottom
-              color={'#f56539'}
+              color={'#f8fafc'}
             >
               Education
             </Typography>
             <Typography
               variant="h5"
-              color={"#fff"}
+              color={"text.secondary"}
               align="center"
               data-aos="fade-up"
               marginTop={4}
@@ -86,15 +74,15 @@ const Education = () => {
                   alignItems='center'
                   sx={{
                     textDecoration: "none",
-                    transition: "all .2s ease-in-out",
-                    "&:hover": {
-                      transform: "translateY(-4px)",
+                  transition: "all .25s ease-in-out",
+                  "&:hover": {
+                      transform: "translateY(-8px) rotateX(2deg)",
                     },
                   }}
                 >
                   <Box
                     component={Card}
-                    padding={4}
+                    padding={3}
                     borderRadius={2}
                     width={1}
                     height={1}
@@ -102,11 +90,12 @@ const Education = () => {
                     data-aos-delay={i * 100}
                     data-aos-offset={100}
                     data-aos-duration={600}
-                    variant='elevation'
                     alignItems="center"
-                    sx={{backgroundColor: '#f565394d',
+                    sx={{
+                    background: "linear-gradient(145deg, rgba(15, 23, 42, 0.86), rgba(8, 17, 31, 0.76))",
+                    boxShadow: "0 20px 60px rgba(2, 8, 23, 0.38)",
                     "&:hover": {
-                      backgroundColor: "#f565396d",
+                      borderColor: "rgba(56, 189, 248, 0.38)",
                     },
                   }}
                   >
@@ -120,27 +109,25 @@ const Education = () => {
                         width={60}
                         height={50}
                         marginBottom={2}
-                        // backgroundColor={theme.palette.primary.main}
-                        sx={{backgroundColor: "#f56539"}}
-                        color={"white"}
+                        sx={{
+                          background: "linear-gradient(135deg, #38bdf8, #fb7185)",
+                          color: "#06111f",
+                        }}
                       >
                         <SchoolIcon/>
-                        {/* <Icon>
-                          {item.icon}
-                        </Icon> */}
                       </Box>
                       <Typography
                         variant="h6"
                         gutterBottom
                         sx={{ fontWeight: 700 }}
-                        color={'#f56539'}
+                        color={'#f8fafc'}
                       >
                         {item.title}
                       </Typography>
-                      <Typography color={'#fff'} sx={{ fontWeight: 500 }}>
+                      <Typography color={'text.secondary'} sx={{ fontWeight: 500 }}>
                         {item.SchoolName}
                       </Typography>
-                      <Typography color={'#fff'} sx={{ fontWeight: 500 }}>
+                      <Typography color={'text.secondary'} sx={{ fontWeight: 500 }}>
                         {item.CGPA}
                       </Typography>
                     </Box>

@@ -1,19 +1,19 @@
 const typography = {
-  fontFamily: "'Montserrat', sans-serif",
+  fontFamily: "'Inter', 'Montserrat', 'Segoe UI', sans-serif",
   fontSize: 13,
   fontWeightLight: 300,
   fontWeightRegular: 400,
   fontWeightMedium: 500,
   fontWeightBold: 600,
   h1: {
-    fontSize: "2rem",
-    fontWeight: 600,
-    lineHeight: 1.25,
+    fontSize: "clamp(2.5rem, 7vw, 5.4rem)",
+    fontWeight: 700,
+    lineHeight: 0.98,
   },
   h2: {
-    fontSize: "1.75rem",
-    fontWeight: 600,
-    lineHeight: 1.25,
+    fontSize: "clamp(2rem, 4vw, 3.4rem)",
+    fontWeight: 700,
+    lineHeight: 1.08,
   },
   h3: {
     fontSize: "1.5rem",

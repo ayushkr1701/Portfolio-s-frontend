@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -10,15 +9,10 @@ import Typography from "@mui/material/Typography";
 import EmailIcon from "@mui/icons-material/Email";
 import LocationIcon from "@mui/icons-material/LocationOn";
 import PhoneIcon from "@mui/icons-material/Phone";
-import { useTheme } from "@mui/material/styles";
 
 import Map from "./Map";
 
 const Contact = () => {
-  const theme = useTheme();
-  
-  const [contact, setContact] = useState([]);
-  
   // const fetchContact = () => {
   //   axios.get("https://ayush-portfolio-backend.onrender.com/contact", {
   //     headers: {
@@ -42,11 +36,11 @@ const Contact = () => {
   // }, []);
   const contactData =[
     {name:"Ayush Kumar",
-    email:'kumar.242@iitj.ac.in',
-    phone:"+919509191973",
-    address: "Hostel B1, IIT Jodhpur, Jodhpur, Rajasthan, India, 342037",
-    latitude: "26.4710",
-    longitude: "73.1134"
+    email:'ayushkr2503@gmail.com',
+    phone:"+91 9509191973",
+    address: "Gurgaon, India",
+    latitude: "28.4595",
+    longitude: "77.0266"
   
   },
   ]
@@ -70,23 +64,22 @@ const Contact = () => {
               variant="h3"
               align="center"
               fontWeight={1000}
-              fontSize={"3.2rem"}
               marginTop="5px"
               data-aos="fade-up"
               gutterBottom
-              color={'#f56539'}
+              color={'#f8fafc'}
             >
               Get in touch
             </Typography>
             <Typography
               variant="h6"
               align="center"
-              color={'#fff'}
+              color={'text.secondary'}
               data-aos="fade-up"
               marginTop={4}
               marginBottom={6}
             >
-              Do you need a full-stack web developer? I would love to hear from you.
+              Need help building a full-stack product, AI workflow, backend API, or cloud deployment? I would love to hear from you.
             </Typography>
           </Box>
           {contactData.map((item,i) => (
@@ -95,7 +88,7 @@ const Contact = () => {
                 <Box marginTop={3} marginBottom={2} justifyContent="center">
                   <Typography 
                     variant="h4" 
-                    sx={{ fontWeight: 600, color: "#f56539" }} 
+                    sx={{ fontWeight: 600, color: "#f8fafc" }} 
                     gutterBottom
                     alignItems="center"
                   >
@@ -124,13 +117,15 @@ const Contact = () => {
                         component={Avatar}
                         width={50}
                         height={50}
-                        backgroundColor={'#f56539'}
-                        color={'#212121'}
+                        sx={{
+                          background: "linear-gradient(135deg, #38bdf8, #fb7185)",
+                          color: "#06111f",
+                        }}
                       >
                         <PhoneIcon fontSize="small" />
                       </Box>
                     </Box>
-                    <ListItemText sx={{color: "#f56539"}}
+                    <ListItemText sx={{color: "#f8fafc", "& .MuiListItemText-secondary": { color: "text.secondary" }}}
                       primary="Phone"
                       secondary={item.phone}
                     />
@@ -152,13 +147,15 @@ const Contact = () => {
                         component={Avatar}
                         width={50}
                         height={50}
-                        backgroundColor={'#f56539'}
-                        color={'#212121'}
+                        sx={{
+                          background: "linear-gradient(135deg, #38bdf8, #fb7185)",
+                          color: "#06111f",
+                        }}
                       >
                         <EmailIcon fontSize="small" />
                       </Box>
                     </Box>
-                    <ListItemText sx={{color: "#f56539"}}
+                    <ListItemText sx={{color: "#f8fafc", "& .MuiListItemText-secondary": { color: "text.secondary" }}}
                       primary="Email"
                       secondary={item.email}
                     />
@@ -179,13 +176,15 @@ const Contact = () => {
                         component={Avatar}
                         width={50}
                         height={50}
-                        backgroundColor={'#f56539'}
-                        color={'#212121'}
+                        sx={{
+                          background: "linear-gradient(135deg, #38bdf8, #fb7185)",
+                          color: "#06111f",
+                        }}
                       >
                         <LocationIcon fontSize="small" />
                       </Box>
                     </Box>
-                    <ListItemText sx={{color: "#f56539"}}
+                    <ListItemText sx={{color: "#f8fafc", "& .MuiListItemText-secondary": { color: "text.secondary" }}}
                       primary="Location"
                       secondary={item.address} 
                     />
